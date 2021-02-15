@@ -24,6 +24,11 @@
     ],
     "trailing-comma": [
       false
-    ]
+    ],
+    "no-empty": false,
+    "max-line-length": false,
+    "prefer-for-of": false,
+    "ban-types": false,
+    "no-console": false
   }
 }
