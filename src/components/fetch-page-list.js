@@ -22,10 +22,14 @@ function fetchJson(url, callback) {
     xhr.open('GET', url + '?v=' + date);
     xhr.onload = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            const data = JSON.parse(xhr.responseText);
-            addTitleProperty(data.tools);
-            addTitleProperty(data.memos);
-            callback(data);
+            try {
+                const data = JSON.parse(xhr.responseText);
+                addTitleProperty(data.tools);
+                addTitleProperty(data.memos);
+                callback(data);
+            } catch (error) {
+                callback({});
+            }
         }
     };
     xhr.send();
