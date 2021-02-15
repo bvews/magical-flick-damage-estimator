@@ -1,6 +1,6 @@
 import { getDamage } from './model';
 import { getDamageOld } from './model-old';
-import { loadWasmModule } from './wasm-loader-local';
+import { loadWasmModule } from './wasm-loader-node';
 import path from 'path';
 
 describe('Damage calculation test', () => {

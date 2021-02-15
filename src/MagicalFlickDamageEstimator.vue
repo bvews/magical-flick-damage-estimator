@@ -79,7 +79,7 @@ import NumberInput from './components/NumberInput.vue';
 import SelectEffectiveness from './components/SelectEffectiveness.vue';
 import MessageResult from './components/MessageResult.vue';
 // import { getDamage, getStar } from './model';
-import { loadWasmModule } from './wasm-loader';
+import { loadWasmModule } from './wasm-loader-browser';
 
 interface Params {
   colors: number;
