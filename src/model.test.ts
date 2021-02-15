@@ -38,14 +38,14 @@ function damageCalculationTest(...methods: Function[]): boolean {
     let count = 0;
     let successCount = 0;
     let invalidCount = 0;
-    testData.forEach(args => {
+    testData.forEach((args) => {
         let prevValue: any;
         let isValid = true;
-        methods.forEach(method => {
+        methods.forEach((method) => {
             const value = method(...args);
             if (prevValue != undefined && prevValue != value) {
                 console.warn('Args: ', args, ', ', prevValue, '!=', value);
-                isValid = false
+                isValid = false;
             }
             prevValue = value;
         });
@@ -63,8 +63,8 @@ function damageCalculationTest(...methods: Function[]): boolean {
 }
 
 interface NameValuesPair {
-    name: string,
-    values: number[]
+    name: string;
+    values: number[];
 }
 
 function getParams(): NameValuesPair[] {
@@ -81,7 +81,7 @@ function getParams(): NameValuesPair[] {
 
 function generateTestData(params: NameValuesPair[]) {
     const length = params
-        .map(p => p.values.length)
+        .map((p) => p.values.length)
         .reduce((prev, current) => prev * current);
 
     const result = [];

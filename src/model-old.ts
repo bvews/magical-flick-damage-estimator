@@ -9,7 +9,7 @@ export function getDamageOld(colors: number, drops: number, attack: number, magn
             convert: { value: '' + targets },
             growth: { value: '' + growth },
             effectiveness: {
-                selectedIndex: selectedIndex,
+                selectedIndex,
                 options: [
                     { value: '0.5' },
                     { value: '1.0' },
@@ -23,7 +23,7 @@ export function getDamageOld(colors: number, drops: number, attack: number, magn
 
     /*
      * Magical-Flick Damage Estimator
-     * 
+     *
      * Copyright (c) 2015, 2017 NullRef.
      *
      * This code is released under the MIT license.
@@ -35,18 +35,18 @@ export function getDamageOld(colors: number, drops: number, attack: number, magn
      */
     function calc(document: Mock) {
         // Count the generated stars
-        var star = (parseInt(document.input.convert.value, 10) + 1)
+        let star = (parseInt(document.input.convert.value, 10) + 1)
             / parseInt(document.input.variety.value) * parseInt(document.input.number.value)
             * (parseInt(document.input.growth.value, 10) + 1.5);
         // @ts-ignore: Argument of type 'number' is not assignable to parameter of type 'string'.
         star = parseInt(star, 10);
 
         // @ts-ignore: Argument of type 'number' is not assignable to parameter of type 'string'.
-        var quotient = parseInt(star / 99, 10);
-        var remainder = star % 99;
+        let quotient = parseInt(star / 99, 10);
+        let remainder = star % 99;
 
         // Calculate a damage value from the inputs
-        var damage = parseInt(document.input.attack.value) * parseFloat(document.input.magnification.value)
+        let damage = parseInt(document.input.attack.value) * parseFloat(document.input.magnification.value)
             * (quotient * getAttackRatio(99) + getAttackRatio(remainder))
             * parseFloat(document.input.effectiveness.options[document.input.effectiveness.selectedIndex].value);
 

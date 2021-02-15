@@ -18,13 +18,13 @@ import fs from 'fs';
 export async function loadWasmModule(url: string): Promise<WebAssembly.WebAssemblyInstantiatedSource> {
     const buffer = fs.readFileSync(url);
     const arrayBuffer = toArrayBuffer(buffer);
-    return await WebAssembly.instantiate(arrayBuffer, { env: { abort: function () { } } });
+    return await WebAssembly.instantiate(arrayBuffer, { env: { abort() { } } });
 }
 
 function toArrayBuffer(buffer: Buffer) {
-    var ab = new ArrayBuffer(buffer.length);
-    var view = new Uint8Array(ab);
-    for (var i = 0; i < buffer.length; ++i) {
+    let ab = new ArrayBuffer(buffer.length);
+    let view = new Uint8Array(ab);
+    for (let i = 0; i < buffer.length; ++i) {
         view[i] = buffer[i];
     }
     return ab;

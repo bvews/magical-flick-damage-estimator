@@ -78,7 +78,7 @@ import TheManual from './components/TheManual.vue';
 import NumberInput from './components/NumberInput.vue';
 import SelectEffectiveness from './components/SelectEffectiveness.vue';
 import MessageResult from './components/MessageResult.vue';
-//import { getDamage, getStar } from './model';
+// import { getDamage, getStar } from './model';
 import { loadWasmModule } from './wasm-loader';
 
 interface Params {
