@@ -22,8 +22,8 @@ export async function loadWasmModule(url: string): Promise<WebAssembly.WebAssemb
 }
 
 function toArrayBuffer(buffer: Buffer) {
-    let ab = new ArrayBuffer(buffer.length);
-    let view = new Uint8Array(ab);
+    const ab = new ArrayBuffer(buffer.length);
+    const view = new Uint8Array(ab);
     for (let i = 0; i < buffer.length; ++i) {
         view[i] = buffer[i];
     }

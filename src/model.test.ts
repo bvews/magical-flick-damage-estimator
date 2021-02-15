@@ -43,8 +43,8 @@ function damageCalculationTest(...methods: Function[]): boolean {
         let isValid = true;
         methods.forEach((method) => {
             const value = method(...args);
-            if (prevValue != undefined && prevValue != value) {
-                console.warn('Args: ', args, ', ', prevValue, '!=', value);
+            if (prevValue !== undefined && prevValue !== value) {
+                console.warn('Args: ', args, ', ', prevValue, '!==', value);
                 isValid = false;
             }
             prevValue = value;

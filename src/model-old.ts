@@ -1,5 +1,5 @@
 export function getDamageOld(colors: number, drops: number, attack: number, magnification: number, targets: number, growth: number, effectiveness: number) {
-    const selectedIndex = effectiveness == 0.5 ? 0 : effectiveness == 2 ? 2 : 1;
+    const selectedIndex = effectiveness === 0.5 ? 0 : effectiveness === 2 ? 2 : 1;
     const mock = {
         input: {
             variety: { value: '' + colors },
@@ -36,17 +36,17 @@ export function getDamageOld(colors: number, drops: number, attack: number, magn
     function calc(document: Mock) {
         // Count the generated stars
         let star = (parseInt(document.input.convert.value, 10) + 1)
-            / parseInt(document.input.variety.value) * parseInt(document.input.number.value)
+            / parseInt(document.input.variety.value, 10) * parseInt(document.input.number.value, 10)
             * (parseInt(document.input.growth.value, 10) + 1.5);
         // @ts-ignore: Argument of type 'number' is not assignable to parameter of type 'string'.
         star = parseInt(star, 10);
 
         // @ts-ignore: Argument of type 'number' is not assignable to parameter of type 'string'.
-        let quotient = parseInt(star / 99, 10);
-        let remainder = star % 99;
+        const quotient = parseInt(star / 99, 10);
+        const remainder = star % 99;
 
         // Calculate a damage value from the inputs
-        let damage = parseInt(document.input.attack.value) * parseFloat(document.input.magnification.value)
+        const damage = parseInt(document.input.attack.value, 10) * parseFloat(document.input.magnification.value)
             * (quotient * getAttackRatio(99) + getAttackRatio(remainder))
             * parseFloat(document.input.effectiveness.options[document.input.effectiveness.selectedIndex].value);
 
